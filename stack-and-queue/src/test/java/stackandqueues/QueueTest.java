@@ -4,7 +4,7 @@ import org.junit.*;
 
 import static org.junit.Assert.*;
 
-public class QueueTest {
+public class QueueTest<E> {
     @Test
     public void enqueue(){
         Queue cupid = new Queue();
@@ -24,8 +24,7 @@ public class QueueTest {
         Queue cupid = new Queue();
         cupid.enqueue(1);
         cupid.enqueue(99);
-        int expected = cupid.peek();
-        assertEquals("The return value of dequeue should equal the head.",expected,cupid.dequeue());
+        assertEquals("The return value of dequeue should equal the head.",1,cupid.dequeue());
     }
     @Test
     public void peekQueue(){

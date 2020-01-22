@@ -3,15 +3,15 @@ package stackandqueues;
 
 import java.util.*;
 
-public class LinkedList {
+public class LinkedList<E> {
 
     Node head;
 
-    public int peek(){
+    public E peek(){
         if(this.isEmpty()){
             throw new EmptyStackException();
         }
-        return this.head.value;
+        return (E) this.head.value;
     }
 
     public boolean isEmpty(){

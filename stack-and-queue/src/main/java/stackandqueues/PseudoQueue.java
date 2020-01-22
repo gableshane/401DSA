@@ -1,11 +1,11 @@
 package stackandqueues;
 
-public class PseudoQueue {
+public class PseudoQueue<E> {
 
     Stack front = new Stack();
     Stack back = new Stack();
 
-    public void enqueue(int value) {
+    public void enqueue(E value) {
         while(!front.isEmpty()){
             back.push(front.pop());
         }
