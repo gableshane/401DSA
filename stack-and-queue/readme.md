@@ -5,7 +5,7 @@ Implementation: Stacks and Queues. This package is stacks and queues built from 
 The challenge was to build from scratch both stacks and queues and all their methods. As well as all of the tests to ensure that they work.
 
 ## Approach & Efficiency
-I built this in the simplist most standard way I could think of. I didn't use generics, they aren't very complicated and I just thought it would be simpler to just use ints.
+I built this in the most simple most standard way I could think of. I didn't use generics, they aren't very complicated and I just thought it would be simpler to just use ints.
 
 ## API
 LinkedList class:
