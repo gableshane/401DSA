@@ -3,11 +3,11 @@ package stackandqueues;
 
 import java.util.*;
 
-public class Queue<E> extends LinkedList{
+public class Queue extends LinkedList{
 
     Node tail;
 
-    public void enqueue(E value){
+    public void enqueue(int value){
         if(this.tail == null){
             Node newNode = new Node(value);
             this.tail = newNode;
@@ -18,14 +18,13 @@ public class Queue<E> extends LinkedList{
             this.tail = newNode;
         }
     }
-    public E dequeue(){
+    public int dequeue(){
         if(this.isEmpty()){
             throw new EmptyStackException();
         }
         Node result = this.head;
         this.head = result.next;
-        E return_data = (E) result.value;
-        return return_data;
+        return result.value;
     }
 
 }
