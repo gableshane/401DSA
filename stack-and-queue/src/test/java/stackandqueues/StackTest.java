@@ -37,18 +37,14 @@ public class StackTest {
     }
     @Test
     public void peek(){
-        Stack zack = new Stack();
-        zack.push(1);
-        assertEquals("The value of peek should be same as head",1,zack.peek());
+        Stack stacky = new Stack();
+        stacky.push(1);
+        int expected = stacky.head.value;
+        assertEquals("The value of peek should be same as head",expected,stacky.peek());
     }
     @Test
     public void emptyStack(){
         Stack zack = new Stack();
         assertTrue("Zack the stack should be empty",zack.isEmpty());
-    }
-    @Test
-    public void testPeek(){
-        Stack zack = new Stack();
-        System.out.println(zack.peek());
     }
 }

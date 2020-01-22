@@ -8,6 +8,7 @@ public class LinkedList {
     Node head;
 
     public int peek(){
+        System.out.println(this.isEmpty());
         if(this.isEmpty()){
             throw new EmptyStackException();
         }
