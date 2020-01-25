@@ -15,4 +15,4 @@ I used two while loops to swap the the order of the stack.
      alt="White Board Picture"
      style="float: left; margin-right: 10px; width: 200px;" />
 
-<a href="../stack-and-queue/src/main/java/stackandqueues/PseudoQueue.java">Code here</a>
+<a href="../../stack-and-queue/src/main/java/stackandqueues/PseudoQueue.java">Code here</a>
