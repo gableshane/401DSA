@@ -1,56 +1,62 @@
 package codechallenges.tree;
 
+import org.checkerframework.checker.units.qual.*;
+
+import java.lang.reflect.*;
+import java.util.*;
+
+// LEARNED HOW TO FINISH THIS FROM CODE REVIEW. CREDIT TO CRYSTAL/NICHOLAS
 public class BinaryTree {
 
     Node root;
 
-    public void preOrder(Node root){
+    public ArrayList<Integer> preOrder(Node root){
+        ArrayList<Integer> listy = new ArrayList<>();
+        if(root != null) {
 
-        if(root == null){
-            throw new IllegalArgumentException("Binary tree cannot be empty");
-        }
+            listy.add(root.value);
 
-        System.out.println(root.value);
+            ArrayList<Integer> lefty = preOrder(root.left);
+            listy.addAll(lefty);
 
-        if(root.left != null){
-            preOrder(root.left);
+
+            ArrayList<Integer> righty = preOrder(root.right);
+            listy.addAll(righty);
+
+
         }
-        if(root.right != null){
-            preOrder(root.right);
-        }
+        return listy;
     }
 
-    public void inOrder(Node nodey){
+    public ArrayList<Integer> inOrder(Node nodey){
 
-        if(root == null){
-            throw new IllegalArgumentException("Binary tree cannot be empty");
+        ArrayList<Integer> listy = new ArrayList<>();
+        if(nodey != null){
+
+            ArrayList<Integer> lefty = inOrder(nodey.left);
+            listy.addAll(lefty);
+
+            listy.add(nodey.value);
+
+            ArrayList<Integer> righty = inOrder(nodey.right);
+            listy.addAll(righty);
         }
-
-        if(nodey.left != null){
-            inOrder(nodey.left);
-        }
-
-        System.out.println(nodey.value);
-
-        if(nodey.right != null){
-            inOrder(nodey.right);
-        }
+        return listy;
     }
 
-    public void postOrder(Node nodey){
+    public ArrayList<Integer> postOrder(Node nodey){
 
-        if(root == null){
-            throw new IllegalArgumentException("Binary tree cannot be empty");
+        ArrayList<Integer> listy = new ArrayList<>();
+        if(nodey != null){
+
+            ArrayList<Integer> lefty = postOrder(nodey.left);
+            listy.addAll(lefty);
+
+            ArrayList<Integer> righty = postOrder(nodey.right);
+            listy.addAll(righty);
+
+            listy.add(nodey.value);
         }
-
-        if(nodey.left != null){
-            postOrder(nodey.left);
-        }
-
-        if(nodey.right != null){
-            postOrder(nodey.right);
-        }
-
-        System.out.println(nodey.value);
+        return listy;
     }
 }

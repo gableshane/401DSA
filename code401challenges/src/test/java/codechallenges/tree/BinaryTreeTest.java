@@ -12,7 +12,12 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        byron.preOrder(byron.root);
+        int actual = byron.preOrder(byron.root).get(0);
+        int actual1 = byron.preOrder(byron.root).get(1);
+        int actual2 = byron.preOrder(byron.root).get(2);
+        assertEquals("Index 0 should be equal to root value",byron.root.value, actual);
+        assertEquals("Index 1 should be equal to left value",byron.root.left.value, actual1);
+        assertEquals("Index 2 should be equal to right value",byron.root.right.value, actual2);
     }
 
     @Test
@@ -21,7 +26,12 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        byron.inOrder(byron.root);
+        int actual = byron.inOrder(byron.root).get(0);
+        int actual1 = byron.inOrder(byron.root).get(1);
+        int actual2 = byron.inOrder(byron.root).get(2);
+        assertEquals("Index 0 should be equal to left value",byron.root.left.value, actual);
+        assertEquals("Index 1 should be equal to root value",byron.root.value, actual1);
+        assertEquals("Index 2 should be equal to right value",byron.root.right.value, actual2);
     }
 
     @Test
@@ -30,7 +40,13 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        byron.postOrder(byron.root);
+        int actual = byron.postOrder(byron.root).get(0);
+        int actual1 = byron.postOrder(byron.root).get(1);
+        int actual2 = byron.postOrder(byron.root).get(2);
+        System.out.println(byron.postOrder(byron.root));
+        assertEquals("Index 0 should be equal to left value",byron.root.left.value, actual);
+        assertEquals("Index 1 should be equal to right value",byron.root.right.value, actual1);
+        assertEquals("Index 2 should be equal to root value",byron.root.value, actual2);
     }
     @Test
     public void canInstantiateEmptyTree(){
@@ -42,7 +58,7 @@ public class BinaryTreeTest {
     public void canInstantiateTreeWithSingleNode(){
         BinaryTree byron = new BinaryTree();
         byron.root = new Node(1);
-        assertEquals("Binary tree root node value is 1", byron.root);
+        assertEquals("Binary tree root node value is 1", 1,byron.root.value);
     }
     @Test
     public void add(){
