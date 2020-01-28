@@ -12,9 +12,9 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        int actual = byron.preOrder(byron.root).get(0);
-        int actual1 = byron.preOrder(byron.root).get(1);
-        int actual2 = byron.preOrder(byron.root).get(2);
+        int actual = (int) byron.preOrder(byron.root).get(0);
+        int actual1 = (int) byron.preOrder(byron.root).get(1);
+        int actual2 = (int) byron.preOrder(byron.root).get(2);
         assertEquals("Index 0 should be equal to root value",byron.root.value, actual);
         assertEquals("Index 1 should be equal to left value",byron.root.left.value, actual1);
         assertEquals("Index 2 should be equal to right value",byron.root.right.value, actual2);
@@ -26,9 +26,9 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        int actual = byron.inOrder(byron.root).get(0);
-        int actual1 = byron.inOrder(byron.root).get(1);
-        int actual2 = byron.inOrder(byron.root).get(2);
+        int actual = (int) byron.inOrder(byron.root).get(0);
+        int actual1 = (int) byron.inOrder(byron.root).get(1);
+        int actual2 = (int) byron.inOrder(byron.root).get(2);
         assertEquals("Index 0 should be equal to left value",byron.root.left.value, actual);
         assertEquals("Index 1 should be equal to root value",byron.root.value, actual1);
         assertEquals("Index 2 should be equal to right value",byron.root.right.value, actual2);
@@ -40,9 +40,9 @@ public class BinaryTreeTest {
         byron.root = new Node(1);
         byron.root.left = new Node(2);
         byron.root.right = new Node(3);
-        int actual = byron.postOrder(byron.root).get(0);
-        int actual1 = byron.postOrder(byron.root).get(1);
-        int actual2 = byron.postOrder(byron.root).get(2);
+        int actual = (int) byron.postOrder(byron.root).get(0);
+        int actual1 = (int) byron.postOrder(byron.root).get(1);
+        int actual2 = (int) byron.postOrder(byron.root).get(2);
         System.out.println(byron.postOrder(byron.root));
         assertEquals("Index 0 should be equal to left value",byron.root.left.value, actual);
         assertEquals("Index 1 should be equal to right value",byron.root.right.value, actual1);

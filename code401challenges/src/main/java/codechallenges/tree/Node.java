@@ -1,12 +1,16 @@
 package codechallenges.tree;
 
-public class Node {
+public class Node<E> {
 
-    int value;
-    Node left;
-    Node right;
+    public E value;
+    public Node left;
+    public Node right;
 
-    public Node(int value){
+    public Node(E value){
+
         this.value = value;
+    }
+    public Node(){
+
     }
 }
