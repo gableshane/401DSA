@@ -1,8 +1,8 @@
 package codechallenges.tree;
 
-public class BinarySearchTree extends BinaryTree{
+public class BinarySearchTree extends BinaryTree<Integer>{
 
-    public Node add(int value, Node node){
+    public Node add(int value, Node<Integer> node){
 
         if(node == null){
             node = new Node(value);
@@ -21,7 +21,7 @@ public class BinarySearchTree extends BinaryTree{
 
     public boolean contains(int value){
 
-        Node current = this.root;
+        Node<Integer> current = this.root;
 
         while(current != null && value != current.value){
             if(value < current.value){
