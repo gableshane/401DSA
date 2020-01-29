@@ -4,11 +4,14 @@ import org.checkerframework.checker.units.qual.*;
 
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.LinkedList;
+
+import codechallenges.linkedList.*;
 
 // LEARNED HOW TO FINISH THIS FROM CODE REVIEW. CREDIT TO CRYSTAL/NICHOLAS
 public class BinaryTree<E> {
 
-    public Node root;
+    public Node<E> root;
 
     public ArrayList<E> preOrder(Node<E> root){
         ArrayList<E> listy = new ArrayList<>();
@@ -58,6 +61,29 @@ public class BinaryTree<E> {
             listy.add(nodey.value);
         }
         return listy;
+    }
+
+    public static<E> ArrayList<E> breadthFirst(BinaryTree<E> byron){
+
+        ArrayList<E> ari = new ArrayList<>();
+
+        Queue<Node<E>> cubert = new LinkedList<>();
+
+        cubert.add(byron.root);
+
+        while(!cubert.isEmpty()){
+
+            Node<E> nodey = cubert.remove();
+            ari.add(nodey.value);
+
+            if(nodey.left != null){
+                cubert.add(nodey.left);
+            }
+            if(nodey.right != null){
+                cubert.add(nodey.right);
+            }
+        }
+        return ari;
     }
 
 }

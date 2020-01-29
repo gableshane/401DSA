@@ -16,7 +16,7 @@ public class FizzBuzzTree {
 
     public static void fizzHelp(Node<String> inputRoot,Node<String> result){
 
-        if(Integer.parseInt( inputRoot.value) % 3 == 0 && Integer.parseInt( inputRoot.value) % 5 == 0){
+        if(Integer.parseInt( inputRoot.value) % 3 == 0 && Integer.parseInt(inputRoot.value) % 5 == 0){
             result.value = "FizzBuzz";
         } else if(Integer.parseInt(inputRoot.value) % 3 == 0){
             result.value = "Fizz";

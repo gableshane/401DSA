@@ -2,6 +2,9 @@ package codechallenges.tree;
 
 import org.junit.*;
 
+import java.lang.reflect.*;
+import java.util.*;
+
 import static org.junit.Assert.*;
 
 public class BinaryTreeTest {
@@ -104,5 +107,24 @@ public class BinaryTreeTest {
         byron.root.left = new Node(9);
         byron.root.right = new Node(11);
         assertFalse("BST does not contain 99, should return false",byron.contains(99));
+    }
+    @Test
+    public void breadthFirstTest(){
+        BinaryTree byron = new BinaryTree();
+        byron.root = new Node(1);
+        byron.root.left = new Node(2);
+        byron.root.right = new Node(3);
+        assertArrayEquals("Should return array [1,2,3]",new Integer[]{1,2,3},BinaryTree.breadthFirst(byron).toArray());
+    }
+    @Test
+    public void breadthFirstTestFalse(){
+        BinaryTree byron = new BinaryTree();
+        try{
+            BinaryTree.breadthFirst(byron);
+            assertTrue(false);
+
+        } catch(Exception e){
+            assertTrue(true);
+        }
     }
 }
