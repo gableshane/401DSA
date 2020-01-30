@@ -86,4 +86,29 @@ public class BinaryTree<E> {
         return ari;
     }
 
+    public int findMaxValue() {
+
+        if (this.root != null) {
+            Queue<Node> cubert = new LinkedList<>();
+
+            cubert.add(this.root);
+
+            int max = (int) this.root.value;
+
+            while (!cubert.isEmpty()) {
+                Node current = cubert.remove();
+                max = Math.max(max, (Integer) current.value);
+                if (current.left != null) {
+                    cubert.add(current.left);
+                }
+                if (current.right != null) {
+                    cubert.add(current.right);
+                }
+            }
+            return max;
+        } else {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+        }
+
 }

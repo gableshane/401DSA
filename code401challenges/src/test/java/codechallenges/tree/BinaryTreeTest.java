@@ -127,4 +127,31 @@ public class BinaryTreeTest {
             assertTrue(true);
         }
     }
+    @Test
+    public void findMaxValueTest(){
+        BinaryTree byron = new BinaryTree();
+        byron.root = new Node(1);
+        byron.root.left = new Node(2);
+        byron.root.right = new Node(3);
+        assertEquals("Max value in tree is 3, should return 3",3,byron.findMaxValue());
+    }
+    @Test
+    public void findMaxValueTestBig(){
+        BinaryTree byron = new BinaryTree();
+        byron.root = new Node(1);
+        byron.root.left = new Node(2);
+        byron.root.right = new Node(3);
+        byron.root.left.right = new Node(99);
+        assertEquals("Max value is 99 expect 99",99,byron.findMaxValue());
+    }
+    @Test
+    public void findMaxValueFailure(){
+        BinaryTree byron = new BinaryTree();
+        try {
+            byron.findMaxValue();
+            assertTrue(false);
+        } catch(Exception e) {
+            assertTrue(true);
+        }
+    }
 }
