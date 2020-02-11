@@ -109,6 +109,7 @@ public class BinaryTree<E> {
         } else {
             throw new IllegalArgumentException("Tree is empty");
         }
-        }
+    }
+
 
 }
