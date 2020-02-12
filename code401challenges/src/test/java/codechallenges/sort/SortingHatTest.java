@@ -27,4 +27,25 @@ public class SortingHatTest {
             assertTrue(true);
         }
     }
+    @Test
+    public void mergeSortTestHappyPath() {
+
+        int[] ari = new int[]{8,6,4,9,12};
+        int[] expected = new int[]{4,6,8,9,12};
+        SortingHat.mergeSort(ari);
+        assertArrayEquals("Array should be sorted",expected,ari);
+    }
+
+    @Test
+    public void mergeSortTestExpectedFailure(){
+
+        int[] ari = new int[]{};
+
+        try {
+            SortingHat.mergeSort(ari);
+            assertTrue(false);
+        } catch(Exception e){
+            assertTrue(true);
+        }
+    }
 }
