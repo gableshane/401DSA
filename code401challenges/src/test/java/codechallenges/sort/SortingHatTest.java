@@ -48,4 +48,26 @@ public class SortingHatTest {
             assertTrue(true);
         }
     }
+
+    @Test
+    public void quickSortTestHappyPath() {
+
+        int[] ari = new int[]{8,6,4,9,12};
+        int[] expected = new int[]{4,6,8,9,12};
+        SortingHat.quickSort(ari,0,4);
+        assertArrayEquals("Array should be sorted",expected,ari);
+    }
+
+    @Test
+    public void quickSortTestExpectedFailure(){
+
+        int[] ari = new int[]{};
+
+        try {
+            SortingHat.quickSort(ari,0,4);
+            assertTrue(false);
+        } catch(Exception e){
+            assertTrue(true);
+        }
+    }
 }
