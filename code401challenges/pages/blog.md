@@ -91,3 +91,50 @@ The first thing that Mergesort does when you pass in [8,4,23,42,16,15] is split 
 So, the first time merge is actually called it is Merge([4],[23],[4,23]) and then Merge([8],[4,23],[8,4,23])... And so on until the last time it is called Merge([4,8,23],[15,16,42],[8,4,23,42,16,15]) as you can see the left and right have been sorted and now the original array will have its values modified in place resulting in [4,8,15,16,23,42].
 
 <a href="../src/main/java/codechallenges/sort">Code here</a>
+
+
+<h2>Quick Sort</h2>
+
+Quick sort is an algorithm that sorts an array by finding a pivot point and then iterating through the array swapping values such that the pivot point is then placed in the middle of the array with lower values on the left and higher values on the right. It then recursively calls itself and performs this same action on the left and right until the entire array is sorted. The iterative process can be seen in the following illustration:
+
+<img src="../assets/quicksort.jpg"
+     alt="White Board Picture"
+     style="float: left; margin-right: 10px; width: 200px;" />
+
+The first pivot point is 15, and it is placed in the middle with the lower values on the left and the higher values on the right. It is then called again on the left side, and again on the right until it is fully sorted.
+
+ALGORITHM QuickSort(arr, left, right)
+    if left < right
+        // Partition the array by setting the position of the pivot value 
+        DEFINE position <-- Partition(arr, left, right)
+        // Sort the left
+        QuickSort(arr, left, position - 1)
+        // Sort the right
+        QuickSort(arr, position + 1, right)
+
+ALGORITHM Partition(arr, left, right)
+    // set a pivot value as a point of reference
+    DEFINE pivot <-- arr[right]
+    // create a variable to track the largest index of numbers lower than the defined pivot
+    DEFINE low <-- left - 1
+    for i <- left to right do
+        if arr[i] <= pivot
+            low++
+            Swap(arr, i, low)
+
+     // place the value of the pivot location in the middle.
+     // all numbers smaller than the pivot are on the left, larger on the right. 
+     Swap(arr, right, low + 1)
+    // return the pivot index point
+     return low + 1
+
+ALGORITHM Swap(arr, i, low)
+    DEFINE temp;
+    temp <-- arr[i]
+    arr[i] <-- arr[low]
+    arr[low] <-- temp
+    
+    <img src="../assets/mergesort.jpg"
+     alt="White Board Picture"
+     style="float: left; margin-right: 10px; width: 200px;" />
+<a href="../src/main/java/codechallenges/sort">Code here</a>
