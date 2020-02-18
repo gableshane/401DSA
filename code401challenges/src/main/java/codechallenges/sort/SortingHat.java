@@ -2,6 +2,8 @@ package codechallenges.sort;
 
 // https://www.techiedelight.com/get-slice-primitive-array-java/ used for reference
 
+import codechallenges.tree.*;
+
 import java.lang.reflect.*;
 import java.util.*;
 
