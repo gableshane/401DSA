@@ -13,3 +13,4 @@ TABLE OF CONTENTS:
 12. <a href="./code401challenges/pages/challenge16.md">FizzBuzz Tree</a>
 13. <a href="./code401challenges/pages/challenge17.md">Breadth First</a>
 14. <a href="./code401challenges/pages/blog.md">BLOG</a>
+15. <a href="./code401challenges/pages/challenge30.md">Hash Table</a>
