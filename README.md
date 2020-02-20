@@ -15,3 +15,4 @@ TABLE OF CONTENTS:
 <a href="./code401challenges/pages/blog.md">BLOG</a>
 <a href="./code401challenges/pages/challenge30.md">Hash Table</a>
 <a href="./code401challenges/pages/challenge31.md">Repeated Words</a>
+<a href="./code401challenges/pages/challenge32.md">Tree Intersection</a>
