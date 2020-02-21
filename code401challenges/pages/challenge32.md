@@ -4,7 +4,7 @@ Without utilizing any of the built-in library methods available to your language
 
 
 ## Approach & Efficiency
-Work in progress...
+I iterated through the first binary tree adding everything in it to a hash set. I then iterate through the second array and add each value in that array to an array list if it is contained in the hashset. I then returned the array.
 
 
 ## Solution

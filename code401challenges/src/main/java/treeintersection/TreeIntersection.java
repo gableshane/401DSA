@@ -6,9 +6,10 @@ import java.util.*;
 
 public class TreeIntersection {
 
-    public static HashSet treeIntersection(BinaryTree treeOne , BinaryTree treeTwo){
+    public static ArrayList treeIntersection(BinaryTree treeOne , BinaryTree treeTwo){
 
         HashSet hashy = new HashSet();
+        ArrayList arr = new ArrayList();
         Queue<Node<Integer>> cubert = new LinkedList<>();
         cubert.add(treeOne.root);
 
@@ -31,7 +32,7 @@ public class TreeIntersection {
         while(!cubert.isEmpty()){
 
             Node<Integer> rootOne = cubert.remove();
-            removeSingularValues(rootOne.value,hashy);
+            addDuplicates(rootOne.value,arr,hashy);
 
             if(rootOne.left != null){
                 cubert.add(rootOne.left);
@@ -41,12 +42,12 @@ public class TreeIntersection {
             }
 
         }
-        return hashy;
+        return arr;
     }
 
-    private static void removeSingularValues(int value, HashSet hashy){
-        if(!hashy.contains(value)){
-            hashy.remove(value);
+    private static void addDuplicates(int value, ArrayList arr,HashSet hashy){
+        if(hashy.contains(value)){
+            arr.add(value);
         }
     }
 }
