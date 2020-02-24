@@ -3,30 +3,30 @@ package graph;
 
 import java.util.*;
 
-public class Graph {
+public class Graph<T> {
 
-    ArrayList<Node> adjacencyList = new ArrayList<>();
+    ArrayList<Node<T>> adjacencyList = new ArrayList<>();
 
-    public Node addNode(int value){
+    public Node<T> addNode(T value){
 
-        Node newNode = new Node(value);
+        Node<T> newNode = new Node<>(value);
         this.adjacencyList.add(newNode);
 
         return newNode;
     }
 
-    public void addEdge(Node first, Node second, int weight){
-        Edge firstEdge = new Edge(weight,second);
-        Edge secondEdge = new Edge(weight,first);
+    public void addEdge(Node<T> first, Node<T> second, int weight){
+        Edge<T> firstEdge = new Edge<>(weight,second);
+        Edge<T> secondEdge = new Edge<>(weight,first);
         first.edges.add(firstEdge);
         second.edges.add(secondEdge);
     }
 
-    public ArrayList<Node> getNodes(){
+    public ArrayList<Node<T>> getNodes(){
         return this.adjacencyList;
     }
 
-    public ArrayList<Edge> getNeighbors(Node node){
+    public ArrayList<Edge<T>> getNeighbors(Node<T> node){
         return node.edges;
     }
 
