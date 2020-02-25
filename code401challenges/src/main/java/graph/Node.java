@@ -11,4 +11,9 @@ public class Node<T> {
         this.value = value;
         this.edges = new ArrayList<>();
     }
+
+    public String toString(){
+        String result = (String)this.value;
+        return result;
+    }
 }
