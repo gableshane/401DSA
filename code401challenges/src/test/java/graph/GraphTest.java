@@ -77,6 +77,42 @@ public class GraphTest {
         assertNull("Should return null",graphy.getNodes());
     }
 
+    @Test
+    public void testBreathfirst(){
+        Node<Integer> testNode = graphy.addNode(1);
+        graphy.addEdge(testNode,graphy.addNode(2),99);
+        graphy.addEdge(testNode,graphy.addNode(3),00);
+        Node<Integer> testNodeTwo = graphy.addNode(4);
+        graphy.addEdge(testNode,testNodeTwo,01);
+        graphy.addEdge(testNodeTwo,graphy.addNode(5),99);
+        graphy.addEdge(testNodeTwo,graphy.addNode(6),00);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("1");
+        expected.add("2");
+        expected.add("3");
+        expected.add("4");
+        expected.add("5");
+        expected.add("6");
+        assertEquals(expected,graphy.breathFirst(testNode));
+    }
+
+    @Test
+    public void testBreadthFirstExectedFail(){
+        Node<Integer> testNode = graphy.addNode(1);
+        assertNull(graphy.breathFirst(testNode));
+    }
+
+    @Test
+    public void testBreathFirstCircular(){
+        Node<Integer> testNode = graphy.addNode(1);
+        Node<Integer> testNodeTwo = graphy.addNode(99);
+        graphy.addEdge(testNode,testNodeTwo,01);
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("1");
+        expected.add("99");
+        assertEquals(expected,graphy.breathFirst(testNode));
+    }
+
     // Michelle told me to ignore test 7 because it makes no sense
 
     // test 8 also makes no sense. Returns null if what? For what method?

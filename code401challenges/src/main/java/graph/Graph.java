@@ -36,4 +36,33 @@ public class Graph<T> {
     public int size(){
         return this.adjacencyList.size();
     }
+
+    public ArrayList<String> breathFirst(Node node){
+
+        if(node.edges.isEmpty()){
+            return null;
+        }
+
+        HashSet<Node<T>> hashy = new HashSet<>();
+        Queue<Node<T>> cubert = new LinkedList<>();
+        ArrayList<String> result = new ArrayList<>();
+        cubert.add(node);
+        result.add(node.value.toString());
+        hashy.add(node);
+
+        while(!cubert.isEmpty()){
+
+            Node<T> temp = cubert.remove();
+            ArrayList<Edge<T>> neighbors = temp.edges;
+
+            for(Edge<T> neighbor : neighbors){
+                if(!hashy.contains(neighbor.node)){
+                    cubert.add(neighbor.node);
+                    hashy.add(neighbor.node);
+                    result.add(neighbor.node.value.toString());
+                }
+            }
+        }
+        return result;
+    }
 }
