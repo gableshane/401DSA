@@ -2,15 +2,13 @@ package graph;
 
 import java.util.*;
 
-public class Node {
+public class Node<T> {
 
-    int value;
-    ArrayList<Edge> edges;
+    T value;
+    ArrayList<Edge<T>> edges;
 
-    public Node(int value){
+    public Node(T value){
         this.value = value;
         this.edges = new ArrayList<>();
-    }
-    public Node(){
     }
 }

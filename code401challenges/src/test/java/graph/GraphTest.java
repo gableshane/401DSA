@@ -8,18 +8,20 @@ import static org.junit.Assert.*;
 
 public class GraphTest {
 
-    Graph graphy;
+    Graph<Integer> graphy;
 
     @Before
     public void instantiateGraph(){
-        graphy = new Graph();
+        graphy = new Graph<>();
     }
+
 
     @Test
     public void testAddNode(){
-        graphy.addNode(1);
+        Node<Integer> testNode = graphy.addNode(1);
+        int expected = 1;
         assertEquals(1,graphy.size());
-        assertEquals(1,graphy.adjacencyList.get(0).value);
+        assertEquals(expected,(int)testNode.value);
     }
 
     @Test
@@ -35,28 +37,28 @@ public class GraphTest {
         graphy.addNode(6);
         graphy.addNode(7);
         graphy.addNode(8);
-        ArrayList<Node> expected = graphy.getNodes();
-        assertEquals(expected.get(0).value,5);
-        assertEquals(expected.get(1).value,6);
-        assertEquals(expected.get(2).value,7);
-        assertEquals(expected.get(3).value,8);
+        ArrayList<Node<Integer>> expected = graphy.getNodes();
+        assertEquals((int)expected.get(0).value,5);
+        assertEquals((int)expected.get(1).value,6);
+        assertEquals((int)expected.get(2).value,7);
+        assertEquals((int)expected.get(3).value,8);
     }
 
     @Test
     public void testGetNeighbors(){
-        Node testNode = graphy.addNode(5);
+        Node<Integer> testNode = graphy.addNode(5);
         graphy.addEdge(testNode,graphy.addNode(9),99);
         graphy.addEdge(testNode,graphy.addNode(99),00);
-        ArrayList<Edge> expected = graphy.getNeighbors(testNode);
-        assertEquals(expected.get(0).node.value,9);
-        assertEquals(expected.get(1).node.value,99);
+        ArrayList<Edge<Integer>> expected = graphy.getNeighbors(testNode);
+        assertEquals((int)expected.get(0).node.value,9);
+        assertEquals((int)expected.get(1).node.value,99);
     }
     @Test
     public void testGetNeighborsWeight(){
-        Node testNode = graphy.addNode(5);
+        Node<Integer> testNode = graphy.addNode(5);
         graphy.addEdge(testNode,graphy.addNode(9),99);
         graphy.addEdge(testNode,graphy.addNode(99),00);
-        ArrayList<Edge> expected = graphy.getNeighbors(testNode);
+        ArrayList<Edge<Integer>> expected = graphy.getNeighbors(testNode);
         assertEquals(expected.get(0).weight,99);
         assertEquals(expected.get(1).weight,00);
     }
@@ -68,6 +70,11 @@ public class GraphTest {
         graphy.addNode(0);
         graphy.addNode(0);
         assertEquals(5,graphy.size());
+    }
+
+    @Test
+    public void testEmptyGraphReturnsNull(){
+        assertNull("Should return null",graphy.getNodes());
     }
 
     // Michelle told me to ignore test 7 because it makes no sense
