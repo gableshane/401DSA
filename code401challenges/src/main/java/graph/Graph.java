@@ -23,6 +23,9 @@ public class Graph<T> {
     }
 
     public ArrayList<Node<T>> getNodes(){
+        if(this.adjacencyList.size() == 0){
+            return null;
+        }
         return this.adjacencyList;
     }
 

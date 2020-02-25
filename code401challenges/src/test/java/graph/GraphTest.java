@@ -72,6 +72,11 @@ public class GraphTest {
         assertEquals(5,graphy.size());
     }
 
+    @Test
+    public void testEmptyGraphReturnsNull(){
+        assertNull("Should return null",graphy.getNodes());
+    }
+
     // Michelle told me to ignore test 7 because it makes no sense
 
     // test 8 also makes no sense. Returns null if what? For what method?
