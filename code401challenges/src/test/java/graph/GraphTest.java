@@ -9,10 +9,19 @@ import static org.junit.Assert.*;
 public class GraphTest {
 
     Graph<Integer> graphy;
+    Graph<String> map;
 
     @Before
     public void instantiateGraph(){
         graphy = new Graph<>();
+        map = new Graph<>();
+        Node<String> seattle = map.addNode("Seattle");
+        Node<String> portland = map.addNode("Portland");
+        Node<String> vancouver = map.addNode("Vancouver");
+        Node<String> lasVegas = map.addNode("Las Vegas");
+        map.addEdge(seattle, portland,99);
+        map.addEdge(seattle, vancouver,49);
+        map.addEdge(portland, lasVegas,149);
     }
 
 
@@ -111,6 +120,33 @@ public class GraphTest {
         expected.add("1");
         expected.add("99");
         assertEquals(expected,graphy.breathFirst(testNode));
+    }
+
+    @Test
+    public void testGetEdges(){
+        String[] testArr = new String[]{"Seattle","Portland"};
+        String[] testArr2 = new String[]{"Seattle","Las Vegas"};
+        String[] testArr3 = new String[]{"Vancouver","Seattle","Portland"};
+        Graph.Result expected1 = new Graph.Result(true,99);
+        Graph.Result expected2 = new Graph.Result(false,0);
+        Graph.Result expected3 = new Graph.Result(true,148);
+        assertEquals(expected1.isPossible,map.getEdge(testArr).isPossible);
+        assertEquals(expected2.isPossible,map.getEdge(testArr2).isPossible);
+        assertEquals(expected3.isPossible,map.getEdge(testArr3).isPossible);
+        assertEquals(expected1.price,map.getEdge(testArr).price,.01);
+        assertEquals(expected2.price,map.getEdge(testArr2).price,.01);
+        assertEquals(expected3.price,map.getEdge(testArr3).price,.01);
+    }
+
+    @Test
+    public void testGetEdgesExpectedFailure(){
+        String[] testArr = new String[]{"Seattle","Portland"};
+        try {
+            graphy.getEdge(testArr);
+            assertTrue(false);
+        } catch(Exception e) {
+            assertTrue(true);
+        }
     }
 
     // Michelle told me to ignore test 7 because it makes no sense

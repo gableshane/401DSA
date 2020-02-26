@@ -65,4 +65,44 @@ public class Graph<T> {
         }
         return result;
     }
+
+    public static class Result {
+
+        boolean isPossible;
+        double price;
+
+        public Result(boolean isPossible, double price){
+            this.isPossible = isPossible;
+            this.price = price;
+        }
+        public String toString(){
+            return this.isPossible + " " + this.price;
+        }
+    }
+    public Result getEdge(String[] cities){
+
+        if(this.adjacencyList.isEmpty()){
+            throw new IllegalArgumentException("Graph is empty");
+        }
+
+        Node<T> temp = new Node<>();
+        Result result = new Result(false,0);
+        for(Node<T> node : this.adjacencyList){
+            if(node.value == cities[0]){
+                temp = node;
+            }
+        }
+
+        for(int i = 1; i < cities.length; i++){
+            result.isPossible = false;
+            for(Edge<T> edge : temp.edges){
+                if(edge.node.value == cities[i]){
+                    result.isPossible = true;
+                    result.price += edge.weight;
+                    temp = edge.node;
+                }
+            }
+        }
+        return result;
+    }
 }
