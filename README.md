@@ -19,3 +19,4 @@ TABLE OF CONTENTS:
 <a href="./code401challenges/pages/challenge35.md">Graph</a><br>
 <a href="./code401challenges/pages/challenge36.md">Breadth First Graph Traversal</a><br>
 <a href="./code401challenges/pages/challenge37.md">Get Edge</a><br>
+<a href="./code401challenges/pages/challenge38.md">Depth First Graph Traversal</a><br>
