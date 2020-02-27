@@ -2,6 +2,7 @@ package graph;
 
 import org.junit.*;
 
+import java.lang.reflect.*;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -10,11 +11,15 @@ public class GraphTest {
 
     Graph<Integer> graphy;
     Graph<String> map;
+    Graph<String> foo;
+    Graph<String> bar;
 
     @Before
     public void instantiateGraph(){
         graphy = new Graph<>();
         map = new Graph<>();
+        foo = new Graph<>();
+        bar = new Graph<>();
         Node<String> seattle = map.addNode("Seattle");
         Node<String> portland = map.addNode("Portland");
         Node<String> vancouver = map.addNode("Vancouver");
@@ -22,6 +27,21 @@ public class GraphTest {
         map.addEdge(seattle, portland,99);
         map.addEdge(seattle, vancouver,49);
         map.addEdge(portland, lasVegas,149);
+
+        Node<String> a = foo.addNode("A");
+        Node<String> b = foo.addNode("B");
+        Node<String> c = foo.addNode("C");
+        Node<String> d = foo.addNode("D");
+        Node<String> e = foo.addNode("E");
+        Node<String> f = foo.addNode("F");
+
+        foo.addEdge(a,b,0);
+        foo.addEdge(b,c,0);
+        foo.addEdge(a,d,0);
+        foo.addEdge(d,e,0);
+        foo.addEdge(e,f,0);
+
+
     }
 
 
@@ -147,6 +167,22 @@ public class GraphTest {
         } catch(Exception e) {
             assertTrue(true);
         }
+    }
+
+    @Test
+    public void testDepthFirst(){
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("A");
+        expected.add("D");
+        expected.add("E");
+        expected.add("F");
+        expected.add("B");
+        expected.add("C");
+        assertEquals(expected,foo.depthFirst(foo.adjacencyList.get(0)));
+    }
+    @Test
+    public void testDepthFirstExpectedFailure(){
+        assertNull(bar.depthFirst(bar.addNode("A")));
     }
 
     // Michelle told me to ignore test 7 because it makes no sense

@@ -105,4 +105,32 @@ public class Graph<T> {
         }
         return result;
     }
+
+    public ArrayList<String> depthFirst(Node node){
+
+        if(node.edges.isEmpty()){
+            return null;
+        }
+
+        HashSet<Node<T>> hashy = new HashSet<>();
+        Stack<Node<T>> zack = new Stack<>();
+        ArrayList<String> result = new ArrayList<>();
+        zack.add(node);
+        hashy.add(node);
+
+        while(!zack.isEmpty()){
+
+            Node<T> temp = zack.pop();
+            ArrayList<Edge<T>> neighbors = temp.edges;
+
+            for(Edge<T> neighbor : neighbors){
+                if(!hashy.contains(neighbor.node)){
+                    zack.add(neighbor.node);
+                    hashy.add(neighbor.node);
+                }
+            }
+            result.add(temp.toString());
+        }
+        return result;
+    }
 }
