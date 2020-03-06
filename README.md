@@ -20,3 +20,4 @@ TABLE OF CONTENTS:
 <a href="./code401challenges/pages/challenge36.md">Breadth First Graph Traversal</a><br>
 <a href="./code401challenges/pages/challenge37.md">Get Edge</a><br>
 <a href="./code401challenges/pages/challenge38.md">Depth First Graph Traversal</a><br>
+<a href="./code401challenges/assets/fixurl.jpg">Sanitize URL</a><br>
